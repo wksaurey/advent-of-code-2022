@@ -4,10 +4,16 @@ split input to crate file and instruction file
 
 parse crate layout
 use stack (first in, first out)
+	use a list, using only append() and pop() (put the number at the end and remove from the end)
 how much of a cheat is it to hardcode this part in? 
+	not at all 
 
 parse intructions
 'move [for loop range] from init stack number, end stack number
+	example: move 2 from 1 to 3
+		for x in range (2)
+			value = list2.pop()
+			list3.append(value)
 
 
 crate print dunder?
