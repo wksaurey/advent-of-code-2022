@@ -28,12 +28,7 @@ for line in file
 			elif end_stack != null
 				end_stack = int(word)
 	for x in range(iteration):
-		stacks[end_stack].append(stacks[init_stacks].pop())
-
-for stack in stacks
-	print(stack.pop)
-		
-			
+		value = stacks
 
 
 crate print dunder?
