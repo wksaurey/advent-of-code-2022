@@ -42,13 +42,10 @@ for line in file:
                 print('Something went wrong while parsing instructions. A fourth number was detected.')
                 exit(0)
 
-    temp = []
-    for x in range(iteration + 1):
-        temp.append(crates[init_stack].pop())
-    for x in range(len(temp)):
-        crates[end_stack].append(temp.pop())
     print(line, end='')
     printCrates()
+    for x in range(iteration + 1):
+        crates[end_stack].append(crates[init_stack].pop())
 printCrates()
 for stack in crates:
     if stack:
