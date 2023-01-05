@@ -11,11 +11,11 @@ use contants
 	SIZE = 2
 	NAME = 3
 
-use a recursive function to create tree. 
+use a recursive function to create tree?
 	
 	if root = null
 		create first node
-use a recursive funtion to find each leaf node and add the sizes to the parent directory size
+use a recursive funtion to find each leaf node and add the sizes to the parent directory size?
 
 
 ```
@@ -32,10 +32,19 @@ def in_tree(name) : boolean
 open file
 for line in file 
 	if line.startswith('$ cd')
-		
+		if root == null
+			root = [
 	
 
 
 
 close file!!!!!!!
+```
+
+
+## Try to understand henrichsen code
+```
+set constants for dir and file objects
+	name, parent, children, size
+
 ```
