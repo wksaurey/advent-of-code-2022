@@ -24,10 +24,7 @@ for line in inp:
             if dirname == "..":
                 current = current[PARENT]
             else:
-                print(line)
                 current = list(filter(lambda child: dirname == child[NAME], current[CHILDREN]))[0]
-                for x in range(4):
-                    print(current[x])
     else:
         size, name = line.split(" ")
         if size == "dir":

@@ -1,50 +1,17 @@
-# Day 7
-
-## General Plans
+# Converting Henrichsen code to basic steps (to avoid plagerizm)
+## Tips
 ```
-use a node object
-call the initial node `root`
+use constants for the list index (NAME, PARENT, CHILDREN, SIZE)
+
+why have nodes?
+	run through each node and check size at the end, no purpose in using a binary search when you can just double it as a node?
+```
+
+## Basic Processing Steps
+```
+set constants and globals (root, current, nodes)
+
+for line in file
+	if command
 		
-use contants 
-	PARENT = 0
-	CHIDREN = 1
-	SIZE = 2
-	NAME = 3
-
-use a recursive function to create tree?
-	
-	if root = null
-		create first node
-use a recursive funtion to find each leaf node and add the sizes to the parent directory size?
-
-
-```
-
-## Psudocode
-```
-def in_tree(name) : boolean
-	if node[NAME] equals name
-		return true
-	
-		
-
-
-open file
-for line in file 
-	if line.startswith('$ cd')
-		if root == null
-			root = [
-	
-
-
-
-close file!!!!!!!
-```
-
-
-## Try to understand henrichsen code
-```
-set constants for dir and file objects
-	name, parent, children, size
-
 ```
