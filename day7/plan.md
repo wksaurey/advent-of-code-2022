@@ -11,7 +11,17 @@ why have nodes?
 ```
 set constants and globals (root, current, nodes)
 
-for line in file
-	if command
+commands
+	cd
+		change current file
+	ls
 		
+output
+	dir
+		check if dir already exists?
+		create new dir
+	file
+		create new file
+		add file size up through node tree?
+
 ```
