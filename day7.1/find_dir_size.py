@@ -39,4 +39,15 @@ def find_sum(root, maximum_size, sum):
 print(find_sum(root, 100000, 0))
 
 
-space_needed = 70,000,000 - root.get_size()
+space_needed = 70000000 - root.get_size()
+print(space_needed)
+
+def clear_smallest_single_dir(root, space_needed, small_enough):
+    for child in root.get_children():
+        find_sum(child, space_needed, sum)
+    small_enough = []
+    if root.get_size() <= space_needed:
+        small_enough.append(root)
+    return small_enough
+
+
