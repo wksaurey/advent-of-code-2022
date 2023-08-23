@@ -19,7 +19,7 @@ crates = [
         ]
 
 
-file = open('instructions.txt')
+file = open('day5/instructions.txt')
 printCrates()
 for line in file:
     iteration = -1
