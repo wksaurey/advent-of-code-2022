@@ -2,15 +2,45 @@
 # save tuple of location in set, then return set.len
 
 def move_head_left():
-    pass
+    hx = hx-1
 
 def move_head_right():
-    pass
+    hx = hx + 1
 
 def move_head_up():
-    pass
+    hy = hy + 1
 
 def move_head_down():
+    hy = hy - 1
+
+def check_tail():
+    dx = hx - tx # change in x
+    dy = hy - ty # change in y
+    # touching, don't move
+    if abs(dx) <= 1 and abs(dy) <= 1:
+        return 
+
+    # move straight
+    elif dy == 0:
+        # move left
+        if dx == -2:
+            ty = ty - 1
+        # move right
+        elif dx == 2:
+            ty = ty + 1
+    elif dx == 0:
+        # move up
+        if dy == 2:
+            tx = tx + 1
+        # move down
+        elif dy == -2:
+            tx = tx - 1
+
+    # move diagonal
+        # ul
+        # ur
+        # dr
+        # dl
     pass
 
 file = open("day9/input.txt")
@@ -34,6 +64,9 @@ for line in file:
         else: #command == 'D'
             move_head_down()
         
+        check_tail()
+        
+print('Number of Tail Locations : ' + str(len(tLocations)))
 
 
         
