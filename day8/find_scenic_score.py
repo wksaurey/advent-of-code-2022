@@ -9,42 +9,41 @@ for line in file:
 def scenic_score(x, y, size):
     # check left
     tempx = x
-    isHidden = False
+    left_score = 0
     while tempx > 0:
         tempx -= 1
+        left_score += 1
         if trees[y][tempx] >= trees[y][x]:
-            isHidden = True
-    if not isHidden: return True
+            break
 
     # check right
     tempx = x
-    isHidden = False
+    right_score = 0
     while tempx < size-1:
         tempx += 1
+        right_score += 1
         if trees[y][tempx] >= trees[y][x]:
-            isHidden = True
-    if not isHidden: return True
+            break
 
     # check up
     tempy = y
-    isHidden = False
+    up_score = 0
     while tempy > 0:
         tempy -= 1
+        up_score += 1
         if trees[tempy][x] >= trees[y][x]:
-            isHidden = True
-    if not isHidden: return True
+            break
 
     # check down
     tempy = y
-    isHidden = False
+    down_score = 0
     while tempy < size -1:
         tempy += 1
+        down_score += 1
         if trees[tempy][x] >= trees[y][x]:
-            isHidden = True
-    if not isHidden: return True
+            break
 
-    # if isHidden from all sides, return false
-    return False
+    return left_score * right_score * up_score * down_score
         
 # returns true if value is on edge of forest
 def edge(x, y, size):
@@ -55,8 +54,9 @@ def edge(x, y, size):
 max_score = 0
 for y, line in enumerate(trees):
     for x, height in enumerate(line):
-        score = scenic_score(x, y, len(line)) 
-        if score > max_score:
-            max_score = score
+        if not edge(x, y, len(line)):
+            score = scenic_score(x, y, len(line)) 
+            if score > max_score:
+                max_score = score
 
-print("The number of visible trees (including edges) is : " + str(visible_sum))
+print("The highest scenic score is : " + str(max_score))
