@@ -8,7 +8,7 @@ class Node(object):
     def get_children(self):
         return self.children
 
-    def add_child(self, obj):
+    def append_child(self, obj):
         self.children.append(obj)
 
     def get_size(self):
@@ -22,5 +22,12 @@ class Node(object):
     
     def get_parent(self):
         return self.parent
+
+    def add_child(self, name):
+        for child in self.get_children():
+            if child.name == name:
+                return child
+        self.append_child(Node(name, self, 0))
+        return self.add_child(name)
 
     
