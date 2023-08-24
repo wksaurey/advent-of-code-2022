@@ -72,25 +72,28 @@ def update_tail(tlocation, hlocation):
 
 
 file = open('day9/input.txt')
-tlocation = [0,0]
-hlocation = [0,0]
+segmentLocations = [[0, 0]] * 10
 tLocations = set()
 x = 0
 y = 1
+index = 2
 for line in file:
     line = line.strip().split(' ')
     command = line[0]
     iterations = int(line[1])
     for _ in range(iterations):
+        # update 'head' (segmentLocations[0])
         if command == 'R':
-            hlocation[x] += 1
+            segmentLocations[0][x] += 1
         elif command == 'L':
-            hlocation[x] -= 1
+            segmentLocations[0][x] -= 1
         elif command == 'U':
-            hlocation[y] += 1
+            segmentLocations[0][y] += 1
         elif command == 'D':
-            hlocation[y] -= 1
-        update_tail(tlocation, hlocation)
-        tLocations.add(tuple(tlocation))
+            segmentLocations[0][y] -= 1
+        # update each segment in chain
+        for index, segment in enumerate(segmentLocations[1:]):
+            update_tail(segment, segmentLocations[index-1])
+        tLocations.add(tuple(segmentLocations[-1]))
     
 print('The number of spaces visited is ' + str(len(tLocations)))
