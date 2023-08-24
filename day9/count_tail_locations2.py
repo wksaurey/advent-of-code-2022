@@ -32,7 +32,7 @@ def update_tail(tlocation, hlocation):
         #. . . h .
         #. t . . .
         #. . . . .
-        if (dy > 1 and dx == 1) or (dx > 1 and dy == 1):
+        if (dy > 1 and dx >= 1) or (dx > 1 and dy >= 1):
             tlocation[x] += 1
             tlocation[y] += 1
         # ul
@@ -41,7 +41,7 @@ def update_tail(tlocation, hlocation):
         #. h . . .
         #. . . t .
         #. . . . .
-        elif (dy > 1 and dx == -1) or (dx < -1 and dy == 1):
+        elif (dy > 1 and dx <= -1) or (dx < -1 and dy >= 1):
             tlocation[x] -= 1
             tlocation[y] += 1
         # dr
@@ -50,7 +50,7 @@ def update_tail(tlocation, hlocation):
         #. . . h .
         #. . h . .
         #. . . . .
-        elif (dy < -1 and dx == 1) or (dx > 1 and dy == -1):
+        elif (dy < -1 and dx >= 1) or (dx > 1 and dy <= -1):
             tlocation[x] += 1
             tlocation[y] -= 1
         # dl
@@ -59,7 +59,7 @@ def update_tail(tlocation, hlocation):
         #. h . . .
         #. . h . .
         #. . . . .
-        elif (dy < -1 and dx == -1) or (dx < -1 and dy == -1):
+        elif (dy < -1 and dx <= -1) or (dx < -1 and dy <= -1):
             tlocation[x] -= 1
             tlocation[y] -= 1
         else:
