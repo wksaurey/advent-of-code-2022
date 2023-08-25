@@ -72,7 +72,7 @@ def update_tail(tlocation, hlocation):
 
 
 file = open('day9/input.txt')
-segmentLocations = [[0, 0]] * 10
+segmentLocations = [[0,0] for _ in range(10)]
 tLocations = set()
 x = 0
 y = 1
@@ -92,8 +92,9 @@ for line in file:
         elif command == 'D':
             segmentLocations[0][y] -= 1
         # update each segment in chain
-        for index, segment in enumerate(segmentLocations[1:]):
+        for index, segment in enumerate(segmentLocations[1:], 1):
             update_tail(segment, segmentLocations[index-1])
+        segmentLocations[-1]
         tLocations.add(tuple(segmentLocations[-1]))
     
 print('The number of spaces visited is ' + str(len(tLocations)))
